@@ -6,8 +6,14 @@
 </head>
 <body>
   <img src="#">
+
   <script>
     const img = document.querySelector("img");
+    fetch("https://api.giphy.com/v1/gifs/translate?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&s=cats")
+        .then(function(response) {
+            console.log(response.json());
+        })
+
   </script>
 </body>
 </html>
