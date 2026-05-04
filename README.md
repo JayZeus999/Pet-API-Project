@@ -1,1 +1,1 @@
-# Pet-API-Project
+# A pet project used to practice working with APIs from The Odin Project.
