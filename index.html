@@ -5,18 +5,31 @@
   <title>Document</title>
 </head>
 <body>
-  <img src="#">
+  <img src="" alt="gif">
 
   <script>
+    const body = document.querySelector("body");
+
+    const imgBtn = document.createElement("button");
+    imgBtn.textContent = "Request New Img!";
+
     const img = document.querySelector("img");
-    fetch("https://api.giphy.com/v1/gifs/translate?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&s=cats")
+
+    imgBtn.addEventListener("click", () => {
+        console.log("Clicked");
+
+        fetch("https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=cats")
         .then(function(response) {
             return response.json();
         })
         .then(function(response) {
+            console.log(response);
+            
             img.src = response.data.images.original.url;
         });
+    });
 
+    body.append(imgBtn);
   </script>
 </body>
 </html>
