@@ -13,7 +13,7 @@
     const searchBox = document.createElement("input");
     searchBox.placeholder = "Search for gifs...";
 
-    
+    const query = searchBox.value;
 
     const imgBtn = document.createElement("button");
     imgBtn.textContent = "Request New Img!";
@@ -23,7 +23,7 @@
     imgBtn.addEventListener("click", () => {
         console.log("Clicked");
 
-        fetch("https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=cats")
+        fetch(`https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`)
         .then(function(response) {
             if (!response.ok) {
                 throw new Error("Network error");
