@@ -10,6 +10,11 @@
   <script>
     const body = document.querySelector("body");
 
+    const searchBox = document.createElement("input");
+    searchBox.placeholder = "Search for gifs...";
+
+    
+
     const imgBtn = document.createElement("button");
     imgBtn.textContent = "Request New Img!";
 
@@ -35,7 +40,9 @@
         })
     });
 
+    
     body.append(imgBtn);
+    body.append(searchBox);
   </script>
 </body>
 </html>
