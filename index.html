@@ -14,6 +14,10 @@
     searchBox.placeholder = "Search for gifs...";
 
     const query = searchBox.value;
+    if (!query) {
+        alert("Please enter a search term");
+        return;
+    }
 
     const imgBtn = document.createElement("button");
     imgBtn.textContent = "Request New Img!";
@@ -26,7 +30,7 @@
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`)
         .then(function(response) {
             if (!response.ok) {
-                throw new Error("Network error");
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
         })
