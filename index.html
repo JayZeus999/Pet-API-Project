@@ -18,11 +18,17 @@
     const searchBox = document.createElement("input");
     searchBox.placeholder = "Search for gifs...";
 
+    searchBox.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            imgBtn.click();
+        }
+    });
+
     imgBtn.addEventListener("click", () => {
         console.log("Clicked");
 
         const query = searchBox.value;
-        
+
         if (!query) {
             alert("Please enter a search term");
             return;
