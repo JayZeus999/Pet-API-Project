@@ -24,6 +24,8 @@
         }
     });
 
+    const message = document.createElement("p");
+
     imgBtn.addEventListener("click", () => {
         console.log("Clicked");
 
@@ -42,10 +44,13 @@
             return response.json();
         })
         .then(function(response) {
-            if (!response.data || response.data.images) {
-                throw new Error("Invalid data from API");
+            if (!response.data || !response.data.images) {
+                message.textContent = "No results found.";
+                img.src = "";
+                return;
             }
 
+            message.textContent = "";
             console.log(response);
 
             img.src = response.data.images.original.url;
