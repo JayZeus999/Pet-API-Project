@@ -23,3 +23,32 @@ const server = {
     });
   },
 };
+
+async function getPersonsInfo(name) {
+  const people = await server.getPeople();
+
+  const person = people.find(person => {
+      return person.name === name
+    }
+  );
+
+  return person;
+}
+
+async function displayPerson() {
+  const individual = await getPersonsInfo("Freyja");
+
+  console.log(individual);
+}
+
+displayPerson();
+
+// function getPersonsInfo(name) {
+//   return server.getPeople().then(people => {
+//     return people.find(person => { return person.name === name });
+//   });
+// }
+
+// getPersonsInfo("Thor").then(person => {
+//   console.log(person)
+// })
