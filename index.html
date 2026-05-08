@@ -37,37 +37,43 @@
         }
 
         async function getGIFS() {
-            fetch(`https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`)
-                .then(function(response) {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(function(response) {
-                    if (!response.data || !response.data.images) {
-                        message.textContent = "No results found.";
-                        img.src = "";
-                        return;
-                    }
+            try {
+                // returns a Promise because the internet takes time.
+                const response = await fetch(
+                    `https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`
+                ); 
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+        
+                // .json() itself ALSO returns a Promise.
+                const gifsData = await response.json(); // That's why we need another await.
 
-                    message.textContent = "";
-                    console.log(response);
+                if (!gifsData.data || !gifsData.data.images) {
+                    message.textContent = "No results found.";
+                    img.src = "";
+                    return;
+                }
 
-                    img.src = response.data.images.original.url;
-                })
-                .catch(function(error) {
-                    console.error(error);
-                });
+                message.textContent = "";
+
+                console.log(gifsData);
+
+                img.src = gifsData.data.images.original.url;
+                
+            }   catch(error) {
+                console.error(error);
+            }
         }
 
         getGIFS();
         
     });
-
     
     body.append(imgBtn);
     body.append(searchBox);
+    body.append(message);
   </script>
 </body>
 </html>
