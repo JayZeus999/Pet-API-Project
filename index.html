@@ -36,28 +36,33 @@
             return;
         }
 
-        fetch(`https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`)
-        .then(function(response) {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(function(response) {
-            if (!response.data || !response.data.images) {
-                message.textContent = "No results found.";
-                img.src = "";
-                return;
-            }
+        async function getGIFS() {
+            fetch(`https://api.giphy.com/v1/gifs/random?api_key=mEQGMgONo4mMBWoejwEASiYvDWW3UMel&tag=${query}`)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(function(response) {
+                    if (!response.data || !response.data.images) {
+                        message.textContent = "No results found.";
+                        img.src = "";
+                        return;
+                    }
 
-            message.textContent = "";
-            console.log(response);
+                    message.textContent = "";
+                    console.log(response);
 
-            img.src = response.data.images.original.url;
-        })
-        .catch(function(error) {
-            console.error(error);
-        })
+                    img.src = response.data.images.original.url;
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+        }
+
+        getGIFS();
+        
     });
 
     
