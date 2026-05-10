@@ -13,4 +13,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem; /* redundant? twas 2em initially */
 }
