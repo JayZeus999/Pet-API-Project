@@ -56,7 +56,7 @@
                 const gifsData = await response.json(); // That's why we need another await.
 
                 if (!gifsData.data || !gifsData.data.images) {
-                    message.textContent = "No results found.";
+                    message.textContent = "Something went wrong. Try again.";
                     img.src = "";
                     return;
                 }
@@ -77,8 +77,9 @@
     });
     
     body.append(title);
-    body.append(imgBtn);
     body.append(searchBox);
+    body.append(imgBtn);
+    body.append(img);
     body.append(message);
   </script>
 </body>
