@@ -2,12 +2,20 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bd-bg: #f4f1ec;
+    --color: #222;
+    --img-blank-bg: #ddd;
+
+    --font: Roboto, sans-serif;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Roboto, sans-serif;
-    background: #f4f1ec;
-    color: #222;
+    font-family: var(--font);
+    background: var(--bd-bg);
+    color: var(--color);
 
     display: flex;
     flex-direction: column;
@@ -28,14 +36,14 @@ img {
     min-height: 16.25rem;
     object-fit: cover;
     border-radius: 8px;
-    background: #ddd;
-    border: 3px solid #222;
+    background: var(--img-blank-bg);
+    border: 3px solid var(--color);
 }
 
 input {
     width: min(26.25rem, 100%);
     padding: 0.75rem 0.875rem;
     font-size: 1rem;
-    border: 2px solid #222;
+    border: 2px solid var(--color);
     border-radius: 6px;
 }
