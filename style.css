@@ -47,3 +47,20 @@ input {
     border: 2px solid var(--color);
     border-radius: 6px;
 }
+
+button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    background: #3894fc;
+    color: white;
+
+    cursor: pointer;
+}
+
+button:hover {
+  background-color: #1f7ae0;
+}
