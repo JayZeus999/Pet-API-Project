@@ -3,9 +3,16 @@
 }
 
 :root {
-    --bd-bg: #f4f1ec;
-    --color: #222;
-    --img-blank-bg: #ddd;
+    --bd-bg: #121212;
+    --color: #f3f3f3;
+
+    --bdr-color:  #2c2340;
+    --img-blank-bg: #1f1b2e;
+
+    --input-bg: #18161f;
+
+    --btn-bg: #8b5cf6;
+    --btn-hover: #7c3aed;
 
     --font: Roboto, sans-serif;
 }
@@ -35,17 +42,27 @@ img {
     width: min(26.25rem, 100%);
     min-height: 16.25rem;
     object-fit: cover;
+
     border-radius: 8px;
     background: var(--img-blank-bg);
-    border: 3px solid var(--color);
+    border: 3px solid var(--bdr-color);
 }
 
 input {
     width: min(26.25rem, 100%);
     padding: 0.75rem 0.875rem;
     font-size: 1rem;
-    border: 2px solid var(--color);
+
+    background: var(--input-bg);
+    color: var(--color);
+
+    border: 2px solid var(--bdr-color);
     border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--btn-bg);
 }
 
 button {
@@ -53,16 +70,16 @@ button {
     font-size: 1rem;
     font-weight: bold;
 
-    border: 2px solid var(--color);
+    border: 2px solid var(--bdr-color);
     border-radius: 6px;
-    background: #3894fc;
+    background: var(--btn-bg);
     color: white;
 
     cursor: pointer;
 }
 
 button:hover {
-  background-color: #1f7ae0;
+  background-color: var(--btn-hover);
 }
 
 p {
